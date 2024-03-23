@@ -5,15 +5,19 @@
             v-for="column in columns"
             ::key="column.id"
         >
-            <header>
+            <header class="font-bold mb-4">
                 {{ column.title }}
             </header>
-            <p 
-                v-for="task in column.tasks"
-                :key="task.id"
+            <KanbanTask 
+            v-for="task in column.tasks"
+            :key="task.id"
+            :task="task"
             >
                 {{ task.title }}
-            </p>
+            </KanbanTask>
+            <footer>
+                <button class="text-gray-500">+ Add a Card</button>
+            </footer>
         </div>
     </div>
 </template>

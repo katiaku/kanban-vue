@@ -14,13 +14,17 @@
                         <DragHandle />
                         {{ column.title }}
                     </header>
-                    <KanbanTask 
-                    v-for="task in column.tasks"
-                    :key="task.id"
-                    :task="task"
+                    <draggable 
+                        v-model="column.tasks"
+                        group="tasks"
+                        handle=".drag-handle"
+                        :animation="150"
+                        item-key="id"
                     >
-                        {{ task.title }}
-                    </KanbanTask>
+                        <template #item="{ element: task}: { element: Task }">
+                            <KanbanTask :task="task" />
+                        </template>
+                    </draggable>
                     <footer>
                         <button class="text-gray-500">+ Add a Card</button>
                     </footer>
@@ -33,7 +37,7 @@
 <script setup lang="ts">
 import { nanoid } from 'nanoid';
 import draggable from "vuedraggable";
-import type { Column } from '../types/index';
+import type { Column, Task } from '../types/index';
 import DragHandle from '../components/DragHandle.vue';
 
 const columns = ref<Column[]>([

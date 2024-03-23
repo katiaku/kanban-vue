@@ -22,7 +22,9 @@
                         item-key="id"
                     >
                         <template #item="{ element: task}: { element: Task }">
-                            <KanbanTask :task="task" />
+                            <div>
+                                <KanbanTask :task="task" />
+                            </div>
                         </template>
                     </draggable>
                     <footer>
@@ -87,3 +89,22 @@ const columns = ref<Column[]>([
 const alt = useKeyModifier("Alt");
 
 </script>
+
+<style>
+
+.sortable-chosen {}
+
+.sortable-drag .task {
+    transform: rotate(5deg);
+}
+
+.sortable-ghost .task {
+    position: relative;
+}
+
+.sortable-ghost .task::after {
+    content: "";
+    @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
+}
+
+</style>

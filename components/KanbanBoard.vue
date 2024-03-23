@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="flex items-start gap-4 overflow-x-auto">
         <div 
+            class="column bg-gray-200 p-5 rounded min-w-[250px]"
             v-for="column in columns"
             ::key="column.id"
         >

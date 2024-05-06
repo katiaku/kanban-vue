@@ -9,4 +9,9 @@ export default defineNuxtConfig({
     '@mdi/font/css/materialdesignicons.min.css'
   ],
   ssr: false,
+  app: {
+    head: {
+      title: "KanbanVue Board",
+    }
+  }
 })

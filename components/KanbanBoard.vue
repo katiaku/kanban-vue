@@ -9,11 +9,11 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-gray-200 p-5 rounded min-w-[250px]">
-                    <header class="font-bold mb-4">
+                <div class="column bg-slate-200 p-5 rounded min-w-[250px] border-t-4 border-emerald-500">
+                    <header class="font-bold mb-4 text-slate-700">
                         <DragHandle />
                         <input
-                            class="title-input bg-transparent focus:bg-white rounded px-1 w-4/5"
+                            class="title-input bg-transparent focus:bg-slate-100 rounded p-2 mx-2 w-4/5 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                             @keyup.enter="($event.target as HTMLInputElement).blur()"
                             @keydown.backspace="column.title === '' ? (columns = columns.filter(c => c.id !== column.id)) : null"
                             type="text"
@@ -36,8 +36,9 @@
                             </div>
                         </template>
                     </draggable>
-                    <footer>
+                    <footer class="flex flex-col gap-3">
                         <NewTask @add="column.tasks.push($event)" />
+                        <i class="mdi mdi-delete cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"></i>
                     </footer>
                 </div>
             </template>

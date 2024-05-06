@@ -5,5 +5,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
   ],
+  css: [
+    '@mdi/font/css/materialdesignicons.min.css'
+  ],
   ssr: false,
 })

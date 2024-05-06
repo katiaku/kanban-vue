@@ -1,3 +1,3 @@
 <template>
-    <span class="drag-handle cursor-move"> 🖐️ </span>
+    <i class="mdi mdi-drag-horizontal drag-handle cursor-move"></i>
 </template>

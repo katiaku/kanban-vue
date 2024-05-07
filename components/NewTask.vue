@@ -4,15 +4,15 @@
             v-model="title"
             @keydown.tab="createTask"
             @keyup.enter="createTask"
-            class="focus:bg-white focus:shadow resize-none rounded w-full border-none px-2"
+            class="focus:bg-white focus:shadow resize-none rounded w-full border-none p-2"
             :class="{
-                'h-7': !focused,
+                'h-10': !focused,
                 'h-20': focused,
             }"
             style="outline: none !important"
             @focus="focused = true"
             @blur="focused = false"
-            :placeholder="!focused ? '+ Add Ticket' : 'Enter a title for this ticket'"
+            :placeholder="!focused ? '+ Add Ticket' : 'Enter ticket title'"
         />
     </div>
 </template>

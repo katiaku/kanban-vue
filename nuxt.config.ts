@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
+    ['@nuxtjs/google-fonts', {
+      families: {
+        'Nunito': true,
+        download: true,
+        inject: true
+      }
+    }],
   ],
   css: [
     '@mdi/font/css/materialdesignicons.min.css'

@@ -4,3 +4,9 @@
     <KanbanBoard />
   </div>
 </template>
+
+<style>
+body {
+  font-family: "Nunito" ;
+}
+</style>

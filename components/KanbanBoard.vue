@@ -10,7 +10,7 @@
         >
             <template #item="{ element: column }: { element: Column }">
                 <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] min-h-[640px] border-t-8 border-emerald-500 mb-4">
-                    <header class="font-bold mb-4 text-slate-600 flex justify-between items-center">
+                    <header class="mb-4 text-slate-700 flex justify-between items-center">
                         <Tooltip
                             text="Move Column"
                             class="font-normal hover:text-emerald-600 transition duration-500 hover:ease-in-out"
@@ -19,7 +19,7 @@
                         </Tooltip>
                         
                         <input
-                            class="title-input bg-transparent focus:bg-slate-100 rounded p-2 mx-2 w-4/5 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                            class="uppercase title-input bg-transparent focus:bg-slate-100 rounded p-2 mx-2 w-4/5 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                             @keyup.enter="($event.target as HTMLInputElement).blur()"
                             @keydown.backspace="column.title === '' ? (columns = columns.filter(c => c.id !== column.id)) : null"
                             type="text"

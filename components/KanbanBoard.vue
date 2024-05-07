@@ -9,7 +9,7 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-slate-200 p-5 rounded min-w-[250px] border-t-4 border-emerald-500 mb-4">
+                <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] border-t-8 border-emerald-500 mb-4">
                     <header class="font-bold mb-4 text-slate-600">
                         <DragHandle />
                         <input

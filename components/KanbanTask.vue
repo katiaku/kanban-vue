@@ -2,15 +2,16 @@
     <div 
         class="task bg-slate-100 p-2 mb-2 rounded shadow-sm max-w-[250px] flex text-slate-600"
         :title="task.createdAt.toLocaleDateString()"
-        @focus="focused = true"
-        @blur="focused = false"
         tabindex="0"
     >
         <DragHandle class="pr-2" />
         <span class="cursor-default">
             {{ task.title }}
         </span>
-        <i class="mdi mdi-close ml-auto cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"></i>
+        <i
+            class="mdi mdi-close ml-auto cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
+            @click="deleteTask"
+        ></i>
     </div>
 </template>
 
@@ -25,11 +26,9 @@ const emit = defineEmits<{
     (e: "delete", payload: ID): void;
 }>();
 
-const focused = ref(false);
-
-onKeyStroke("Backspace", (e) => {
-    if (focused.value) emit("delete", props.task.id);
-});
+const deleteTask = () => {
+    emit("delete", props.task.id);
+};
 
 </script>
 
@@ -49,11 +48,5 @@ onKeyStroke("Backspace", (e) => {
     content: "";
     @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
 }
-
-/* .task:focus,
-.task:focus-visible {
-    @apply outline-gray-400 !important;
-    outline: gray auto 1px;
-} */
 
 </style>

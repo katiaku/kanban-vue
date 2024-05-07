@@ -1,15 +1,16 @@
 <template>
     <div 
-        class="task bg-white p-2 mb-2 rounded shadow-sm max-w-[250px] flex"
+        class="task bg-slate-100 p-2 mb-2 rounded shadow-sm max-w-[250px] flex text-slate-600"
         :title="task.createdAt.toLocaleDateString()"
         @focus="focused = true"
         @blur="focused = false"
         tabindex="0"
     >
         <DragHandle class="pr-2" />
-        <span>
+        <span class="cursor-default">
             {{ task.title }}
         </span>
+        <i class="mdi mdi-close ml-auto cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"></i>
     </div>
 </template>
 
@@ -49,10 +50,10 @@ onKeyStroke("Backspace", (e) => {
     @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
 }
 
-.task:focus,
+/* .task:focus,
 .task:focus-visible {
     @apply outline-gray-400 !important;
     outline: gray auto 1px;
-}
+} */
 
 </style>

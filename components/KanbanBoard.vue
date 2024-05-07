@@ -10,7 +10,7 @@
         >
             <template #item="{ element: column }: { element: Column }">
                 <div class="column bg-slate-200 p-5 rounded min-w-[250px] border-t-4 border-emerald-500">
-                    <header class="font-bold mb-4 text-slate-700">
+                    <header class="font-bold mb-4 text-slate-600">
                         <DragHandle />
                         <input
                             class="title-input bg-transparent focus:bg-slate-100 rounded p-2 mx-2 w-4/5 focus:outline-none focus:ring-1 focus:ring-emerald-500"

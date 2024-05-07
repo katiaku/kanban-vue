@@ -1,13 +1,13 @@
 <template>
     <div 
-        class="task bg-slate-100 p-2 mb-2 rounded shadow-sm max-w-[250px] flex text-slate-600"
+        class="task bg-white p-2 mb-2 rounded shadow-sm max-w-[350px] flex text-slate-600"
         :title="task.createdAt.toLocaleDateString()"
         tabindex="0"
     >
         <Tooltip text="Move Ticket">
             <DragHandle class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out" />
         </Tooltip>
-        <span class="cursor-default">
+        <span class="cursor-default overflow-hidden break-words pr-2">
             {{ task.title }}
         </span>
         <Tooltip text="Delete Ticket" class="ml-auto">

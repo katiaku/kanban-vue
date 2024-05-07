@@ -4,7 +4,7 @@
             v-model="title"
             @keydown.tab="createTask"
             @keyup.enter="createTask"
-            class="focus:bg-white focus:shadow resize-none rounded w-full border-none p-2"
+            class="bg-slate-100 focus:bg-slate-100 focus:shadow resize-none rounded w-full border-none p-2"
             :class="{
                 'h-10': !focused,
                 'h-20': focused,

@@ -9,7 +9,7 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] min-h-[640px] border-t-8 border-emerald-500 mb-4">
+                <div class="column bg-slate-200 p-5 pt-3 rounded w-[350px] min-h-[640px] border-t-8 border-emerald-500 mb-4">
                     <header class="mb-4 text-slate-700 flex justify-between items-center">
                         <Tooltip
                             text="Move Column"

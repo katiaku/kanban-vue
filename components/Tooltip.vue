@@ -1,0 +1,34 @@
+<template>
+    <div class="tooltip relative inline-block">
+        <slot></slot>
+        <span class="tooltip-text cursor-default absolute z-10 bg-white border border-slate-200 text-slate-700 p-1 rounded-full text-[10px] text-center">{{ text }}</span>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { defineProps } from 'vue';
+
+const props = defineProps<{
+    text: string;
+}>();
+
+</script>
+
+<style scoped>
+.tooltip .tooltip-text {
+    visibility: 0;
+    min-width: 90px;
+    width: auto;
+    bottom: 50%;
+    left: 50%;
+    margin-left: 7px;
+    opacity: 0;
+    transition: opacity .7s ease-in-out;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: 1;
+    opacity: 1;
+} 
+
+</style>

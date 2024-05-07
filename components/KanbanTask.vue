@@ -4,14 +4,18 @@
         :title="task.createdAt.toLocaleDateString()"
         tabindex="0"
     >
-        <DragHandle class="pr-2" />
+        <Tooltip text="Move Ticket">
+            <DragHandle class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out" />
+        </Tooltip>
         <span class="cursor-default">
             {{ task.title }}
         </span>
-        <i
-            class="mdi mdi-close ml-auto cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
-            @click="deleteTask"
-        ></i>
+        <Tooltip text="Delete Ticket" class="ml-auto">
+            <i
+                class="mdi mdi-close cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
+                @click="deleteTask"
+            ></i>
+        </Tooltip>
     </div>
 </template>
 

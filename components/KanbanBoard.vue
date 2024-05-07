@@ -11,7 +11,13 @@
             <template #item="{ element: column }: { element: Column }">
                 <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] border-t-8 border-emerald-500 mb-4">
                     <header class="font-bold mb-4 text-slate-600">
-                        <DragHandle />
+                        <Tooltip
+                            text="Move Column"
+                            class="font-normal hover:text-emerald-600 transition duration-500 hover:ease-in-out"
+                        >
+                            <DragHandle />
+                        </Tooltip>
+                        
                         <input
                             class="title-input bg-transparent focus:bg-slate-100 rounded p-2 mx-2 w-4/5 focus:outline-none focus:ring-1 focus:ring-emerald-500"
                             @keyup.enter="($event.target as HTMLInputElement).blur()"
@@ -38,10 +44,12 @@
                     </draggable>
                     <footer class="flex flex-col gap-3">
                         <NewTask @add="column.tasks.push($event)" />
-                        <i
-                            class="mdi mdi-delete cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
-                            @click="deleteColumn(column.id)"
+                        <Tooltip text="Delete Column" class="self-end">
+                            <i
+                                class="mdi mdi-delete cursor-pointer text-slate-600 hover:text-red-600 transition duration-500 hover:ease-in-out"
+                                @click="deleteColumn(column.id)"
                             ></i>
+                        </Tooltip>
                     </footer>
                 </div>
             </template>
@@ -60,6 +68,7 @@ import { nanoid } from 'nanoid';
 import draggable from "vuedraggable";
 import type { Column, Task } from '../types/index';
 import DragHandle from '../components/DragHandle.vue';
+import Tooltip from '../components/Tooltip.vue';
 
 const columns = useLocalStorage<Column[]>("kanbanBoard", [
     {

@@ -45,9 +45,9 @@
         </draggable>
         <button
             @click="createColumn"
-            class="bg-gray-200 whitespace-nowrap p-2 rounded opacity-50"
+            class="bg-slate-200 hover:bg-emerald-500 text-slate-600 hover:text-white whitespace-nowrap p-2 rounded transition duration-300 hover:ease-in-out"
         >
-            + Add Another Column
+            + Add Column
         </button>
     </div>
 </template>

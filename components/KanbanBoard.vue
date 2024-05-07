@@ -38,7 +38,10 @@
                     </draggable>
                     <footer class="flex flex-col gap-3">
                         <NewTask @add="column.tasks.push($event)" />
-                        <i class="mdi mdi-delete cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"></i>
+                        <i
+                            class="mdi mdi-delete cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
+                            @click="deleteColumn(column.id)"
+                            ></i>
                     </footer>
                 </div>
             </template>
@@ -132,6 +135,10 @@ function createColumn() {
         ).focus();
     });
 };
+
+function deleteColumn(columnId: string) {
+    columns.value = columns.value.filter(c => c.id !== columnId);
+}
 
 </script>
 

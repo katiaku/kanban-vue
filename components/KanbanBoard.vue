@@ -9,8 +9,8 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] border-t-8 border-emerald-500 mb-4">
-                    <header class="font-bold mb-4 text-slate-600">
+                <div class="column bg-slate-200 p-5 pt-3 rounded min-w-[250px] min-h-[640px] border-t-8 border-emerald-500 mb-4">
+                    <header class="font-bold mb-4 text-slate-600 flex justify-between items-center">
                         <Tooltip
                             text="Move Column"
                             class="font-normal hover:text-emerald-600 transition duration-500 hover:ease-in-out"
@@ -25,6 +25,13 @@
                             type="text"
                             v-model="column.title"
                         />
+
+                        <Tooltip text="Delete Column" class="">
+                            <i
+                                class="mdi mdi-delete cursor-pointer text-slate-600 hover:text-red-600 transition duration-500 hover:ease-in-out"
+                                @click="deleteColumn(column.id)"
+                            ></i>
+                        </Tooltip>
                     </header>
                     <draggable 
                         v-model="column.tasks"
@@ -42,21 +49,15 @@
                             </div>
                         </template>
                     </draggable>
-                    <footer class="flex flex-col gap-3">
+                    <footer class="min-h-full flex flex-col justify-between">
                         <NewTask @add="column.tasks.push($event)" />
-                        <Tooltip text="Delete Column" class="self-end">
-                            <i
-                                class="mdi mdi-delete cursor-pointer text-slate-600 hover:text-red-600 transition duration-500 hover:ease-in-out"
-                                @click="deleteColumn(column.id)"
-                            ></i>
-                        </Tooltip>
                     </footer>
                 </div>
             </template>
         </draggable>
         <button
             @click="createColumn"
-            class="bg-slate-200 hover:bg-emerald-500 text-slate-600 hover:text-white whitespace-nowrap p-2 rounded transition duration-300 hover:ease-in-out"
+            class="bg-slate-200 hover:bg-emerald-500 text-slate-600 hover:text-white whitespace-nowrap p-2 rounded transition duration-500 hover:ease-in-out"
         >
             + Add Column
         </button>
@@ -74,23 +75,7 @@ const columns = useLocalStorage<Column[]>("kanbanBoard", [
     {
         id: nanoid(),
         title: "Backlog",
-        tasks: [
-            {
-                id: nanoid(),
-                title: "Create Dashboard",
-                createdAt: new Date(),
-            },
-            {
-                id: nanoid(),
-                title: "Create Landing Page",
-                createdAt: new Date(),
-            },
-            {
-                id: nanoid(),
-                title: "Revise Storybook",
-                createdAt: new Date(),
-            },
-        ],
+        tasks: [],
     },
     {
         id: nanoid(),

@@ -19,9 +19,9 @@ const props = defineProps<{
     visibility: 0;
     min-width: 90px;
     width: auto;
-    bottom: 50%;
+    bottom: 65%;
     left: 50%;
-    margin-left: 7px;
+    margin-left: 4px;
     opacity: 0;
     transition: opacity .7s ease-in-out;
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-start overflow-x-auto gap-4">
+    <div class="content flex items-start overflow-x-auto overflow-y-auto gap-4 mb-4">
         <draggable 
             v-model="columns"
             group="columns"
@@ -9,7 +9,7 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-slate-200 p-5 rounded min-w-[250px] border-t-4 border-emerald-500">
+                <div class="column bg-slate-200 p-5 rounded min-w-[250px] border-t-4 border-emerald-500 mb-4">
                     <header class="font-bold mb-4 text-slate-600">
                         <DragHandle />
                         <input
@@ -150,6 +150,20 @@ function createColumn() {
 .sortable-ghost .task::after {
     content: "";
     @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
+}
+
+.content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+    border-radius: 4px;
+    border: 2px solid #e2e8f0;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #e2e8f0; 
+    border-radius: 4px;
 }
 
 </style>

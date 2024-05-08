@@ -1,18 +1,19 @@
 <template>
     <div 
         class="task bg-white p-2 mb-2 rounded shadow-sm max-w-[350px] flex text-slate-600"
-        :title="task.createdAt.toLocaleDateString()"
         tabindex="0"
     >
         <Tooltip text="Move Ticket">
             <DragHandle class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out" />
         </Tooltip>
-        <span class="cursor-default overflow-hidden break-words pr-2">
+        <span class="cursor-default overflow-hidden break-words pr-2" :title="task.createdAt.toLocaleDateString()">
             {{ task.title }}
         </span>
-        <span class="ml-auto pr-2" @click="changePriority">
-            <i :class="priorityIcon" class="mdi mdi-star cursor-pointer transition duration-300"></i>
-        </span>
+        <Tooltip text="Priority">
+            <span class="ml-auto pr-2" @click="changePriority">
+                <i :class="priorityIcon" class="mdi mdi-star cursor-pointer transition duration-300"></i>
+            </span>
+        </Tooltip>
         <Tooltip text="Delete Ticket">
             <i
                 class="mdi mdi-close cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"

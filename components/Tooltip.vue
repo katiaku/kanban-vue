@@ -19,7 +19,7 @@ const props = defineProps<{
     visibility: 0;
     min-width: 80px;
     width: auto;
-    bottom: 65%;
+    top: 25px;
     left: 50%;
     margin-left: 4px;
     opacity: 0;

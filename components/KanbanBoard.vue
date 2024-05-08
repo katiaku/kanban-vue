@@ -9,7 +9,10 @@
             class="flex items-start gap-4"
         >
             <template #item="{ element: column }: { element: Column }">
-                <div class="column bg-slate-200 p-5 pt-3 rounded w-[350px] min-h-[640px] border-t-8 border-emerald-500 mb-4">
+                <div
+                    class="column bg-slate-200 p-5 pt-3 rounded w-[350px] min-h-[640px] border-t-8 border-emerald-500 mb-4 transition duration-500 ease-in-out"
+                    :class="{ 'border-red-500': column.tasks.length >= ticketLimit }"
+                >
                     <header class="mb-1 text-slate-700 flex justify-between items-center">
                         <Tooltip
                             text="Move Column"
@@ -35,7 +38,7 @@
                     </header>
 
                     <div class="text-slate-700 text-sm mb-4 pr-1 text-right">
-                        Total Tickets: {{ column.tasks.length }}
+                        Total Tickets: {{ column.tasks.length }} / 5
                     </div>
 
                     <draggable 
@@ -76,6 +79,8 @@ import draggable from "vuedraggable";
 import type { Column, Task } from '../types/index';
 import DragHandle from '../components/DragHandle.vue';
 import Tooltip from '../components/Tooltip.vue';
+
+const ticketLimit = 5;
 
 const columns = useLocalStorage<Column[]>("kanbanBoard", [
     {

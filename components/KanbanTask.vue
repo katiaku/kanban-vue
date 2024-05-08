@@ -42,18 +42,30 @@ const priority = ref(0);
 
 const changePriority = () => {
     priority.value = (priority.value + 1) % 3;
+    savePriorityToLocal();
 };
 
 const priorityIcon = computed(() => {
     switch (priority.value) {
         case 0:
-            return "mdi mdi-circle-medium text-green-500";
+            return "text-green-500";
         case 1:
-            return "mdi mdi-circle-medium text-yellow-500";
+            return "text-yellow-500";
         case 2:
-            return "mdi mdi-circle-medium text-red-500";
+            return "text-red-500";
         default:
             return "";
+    }
+});
+
+const savePriorityToLocal = () => {
+    localStorage.setItem(`taskPriority_${props.task.id}`, priority.value.toString());
+};
+
+onMounted(() => {
+    const savedPriority = localStorage.getItem(`taskPriority_${props.task.id}`);
+    if (savedPriority !== null) {
+        priority.value = parseInt(savedPriority);
     }
 });
 

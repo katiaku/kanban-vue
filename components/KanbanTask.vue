@@ -10,7 +10,10 @@
         <span class="cursor-default overflow-hidden break-words pr-2">
             {{ task.title }}
         </span>
-        <Tooltip text="Delete Ticket" class="ml-auto">
+        <span class="ml-auto pr-2" @click="changePriority">
+            <i :class="priorityIcon" class="mdi mdi-star cursor-pointer transition duration-300"></i>
+        </span>
+        <Tooltip text="Delete Ticket">
             <i
                 class="mdi mdi-close cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
                 @click="deleteTask"
@@ -21,6 +24,7 @@
 
 <script setup lang="ts">
 import type { Task, ID } from '@/types';
+import { ref, computed } from 'vue';
 
 const props = defineProps<{
     task: Task;
@@ -33,6 +37,25 @@ const emit = defineEmits<{
 const deleteTask = () => {
     emit("delete", props.task.id);
 };
+
+const priority = ref(0);
+
+const changePriority = () => {
+    priority.value = (priority.value + 1) % 3;
+};
+
+const priorityIcon = computed(() => {
+    switch (priority.value) {
+        case 0:
+            return "mdi mdi-circle-medium text-green-500";
+        case 1:
+            return "mdi mdi-circle-medium text-yellow-500";
+        case 2:
+            return "mdi mdi-circle-medium text-red-500";
+        default:
+            return "";
+    }
+});
 
 </script>
 

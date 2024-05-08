@@ -1,75 +1,32 @@
-# Nuxt 3 Minimal Starter
+# KanbanVue
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Description
 
-## Setup
+Inspired by the principles of Agile methodologies, I wanted to build my own application to easily visualize my work and prioritize tasks. KanbanVue is a kanban board application for work management. With intuitive features and smooth user interactions it provides an efficient way to organize tasks.
 
-Make sure to install the dependencies:
+## Features
 
-```bash
-# npm
-npm install
+* Add, delete, rename, and reorder columns.
+* Add, delete, reorder tasks within columns, move them to another column.
+* Set three levels of task priority.
+* Each column has a limit of 5 tickets. When the limit is reached, the column header is marked with red color, providing visual indication.
+* View the total number of tickets in each column.
+* Designed for desktop use.
+* User-friendly intuitive interface with smooth user interactions.
 
-# pnpm
-pnpm install
+## Tech Stack
 
-# yarn
-yarn install
+* Nuxt3
+* Tailwind CSS
+* Deployed on Vercel
 
-# bun
-bun install
-```
+## Usage
 
-## Development Server
+* Clone the repository.
+* Install dependencies with ```npm install```
+* Run the application locally with ```npm run dev```
+* Access the application in your browser at http://localhost:3000
 
-Start the development server on `http://localhost:3000`:
+## Feedback and Contributions
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Any suggestions, feedback, or contributions to improve KanbanVue are welcomed. Feel free to open an issue or pull request.

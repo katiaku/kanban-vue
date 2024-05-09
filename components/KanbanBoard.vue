@@ -38,7 +38,7 @@
                     </header>
 
                     <div class="text-slate-700 text-sm mb-4 pr-1 text-right">
-                        Total Tickets: {{ column.tasks.length }} / 5
+                        Total Tickets: {{ column.tasks.length }} / {{ ticketLimit }}
                     </div>
 
                     <draggable 
@@ -148,9 +148,6 @@ function deleteColumn(columnId: string) {
 </script>
 
 <style>
-
-.sortable-chosen {}
-
 .sortable-drag .task {
     transform: rotate(5deg);
 }

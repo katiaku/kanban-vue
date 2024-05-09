@@ -22,7 +22,7 @@ Inspired by the principles of Agile methodologies, I wanted to build my own appl
 
 ## Usage
 
-* Clone the repository.
+* Clone the repository
 * Install dependencies with ```npm install```
 * Run the application locally with ```npm run dev```
 * Access the application in your browser at http://localhost:3000

@@ -6,14 +6,26 @@
         <Tooltip text="Move Ticket">
             <DragHandle class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out" />
         </Tooltip>
-        <span class="w-full cursor-default overflow-hidden break-words pr-2" :title="task.createdAt.toLocaleDateString()">
+
+        <span
+            class="w-full cursor-default overflow-hidden break-words pr-2"
+            :title="task.createdAt.toLocaleDateString()"
+        >
             {{ task.title }}
         </span>
+
         <Tooltip text="Priority">
-            <span class="ml-auto pr-2" @click="changePriority">
-                <i :class="priorityIcon" class="mdi mdi-star cursor-pointer transition duration-300"></i>
+            <span
+                class="ml-auto pr-2"
+                @click="changePriority"
+            >
+                <i
+                    :class="priorityIcon"
+                    class="mdi mdi-star cursor-pointer transition duration-300"
+                ></i>
             </span>
         </Tooltip>
+
         <Tooltip text="Delete Ticket">
             <i
                 class="mdi mdi-close cursor-pointer text-slate-600 self-end hover:text-red-600 transition duration-500 hover:ease-in-out"
@@ -35,16 +47,7 @@ const emit = defineEmits<{
     (e: "delete", payload: ID): void;
 }>();
 
-const deleteTask = () => {
-    emit("delete", props.task.id);
-};
-
 const priority = ref(0);
-
-const changePriority = () => {
-    priority.value = (priority.value + 1) % 3;
-    savePriorityToLocal();
-};
 
 const priorityIcon = computed(() => {
     switch (priority.value) {
@@ -58,6 +61,15 @@ const priorityIcon = computed(() => {
             return "";
     }
 });
+
+const deleteTask = () => {
+    emit("delete", props.task.id);
+};
+
+const changePriority = () => {
+    priority.value = (priority.value + 1) % 3;
+    savePriorityToLocal();
+};
 
 const savePriorityToLocal = () => {
     localStorage.setItem(`taskPriority_${props.task.id}`, priority.value.toString());
@@ -73,9 +85,6 @@ onMounted(() => {
 </script>
 
 <style>
-
-.sortable-chosen {}
-
 .sortable-drag .task {
     transform: rotate(5deg);
 }

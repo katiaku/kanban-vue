@@ -17,6 +17,7 @@ Inspired by the principles of Agile methodologies, I wanted to build my own appl
 ## Tech Stack
 
 * Nuxt3
+* TypeScript
 * Tailwind CSS
 * Deployed on Vercel
 

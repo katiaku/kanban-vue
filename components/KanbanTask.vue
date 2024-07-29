@@ -1,10 +1,12 @@
 <template>
-    <div 
+    <div
         class="task bg-white p-2 mb-2 rounded shadow-sm max-w-[350px] flex text-slate-600"
         tabindex="0"
     >
         <Tooltip text="Move Ticket">
-            <DragHandle class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out" />
+            <DragHandle
+                class="pr-2 hover:text-emerald-600 transition duration-500 hover:ease-in-out"
+            />
         </Tooltip>
 
         <span
@@ -15,10 +17,7 @@
         </span>
 
         <Tooltip text="Priority">
-            <span
-                class="ml-auto pr-2"
-                @click="changePriority"
-            >
+            <span class="ml-auto pr-2" @click="changePriority">
                 <i
                     :class="priorityIcon"
                     class="mdi mdi-star cursor-pointer transition duration-300"
@@ -36,52 +35,54 @@
 </template>
 
 <script setup lang="ts">
-import type { Task, ID } from '@/types';
-import { ref, computed } from 'vue';
+import type { Task, ID } from '@/types'
+import { ref, computed } from 'vue'
 
 const props = defineProps<{
-    task: Task;
-}>();
+    task: Task
+}>()
 
 const emit = defineEmits<{
-    (e: "delete", payload: ID): void;
-}>();
+    (e: 'delete', payload: ID): void
+}>()
 
-const priority = ref(0);
+const priority = ref(0)
 
 const priorityIcon = computed(() => {
     switch (priority.value) {
         case 0:
-            return "text-green-500";
+            return 'text-green-500'
         case 1:
-            return "text-yellow-500";
+            return 'text-yellow-500'
         case 2:
-            return "text-red-500";
+            return 'text-red-500'
         default:
-            return "";
+            return ''
     }
-});
+})
 
 const deleteTask = () => {
-    emit("delete", props.task.id);
-};
+    emit('delete', props.task.id)
+}
 
 const changePriority = () => {
-    priority.value = (priority.value + 1) % 3;
-    savePriorityToLocal();
-};
+    priority.value = (priority.value + 1) % 3
+    savePriorityToLocal()
+}
 
 const savePriorityToLocal = () => {
-    localStorage.setItem(`taskPriority_${props.task.id}`, priority.value.toString());
-};
+    localStorage.setItem(
+        `taskPriority_${props.task.id}`,
+        priority.value.toString()
+    )
+}
 
 onMounted(() => {
-    const savedPriority = localStorage.getItem(`taskPriority_${props.task.id}`);
+    const savedPriority = localStorage.getItem(`taskPriority_${props.task.id}`)
     if (savedPriority !== null) {
-        priority.value = parseInt(savedPriority);
+        priority.value = parseInt(savedPriority)
     }
-});
-
+})
 </script>
 
 <style>
@@ -94,8 +95,7 @@ onMounted(() => {
 }
 
 .sortable-ghost .task::after {
-    content: "";
+    content: '';
     @apply absolute top-0 bottom-0 left-0 right-0 bg-slate-300 rounded;
 }
-
 </style>

@@ -8,9 +8,7 @@
         />
         <h1 class="text-4xl text-slate-600 text-center">
             Welcome to your
-            <span class="text-emerald-500">
-                KanbanVue 
-            </span>
+            <span class="text-emerald-500"> KanbanVue </span>
             Board!
         </h1>
     </div>

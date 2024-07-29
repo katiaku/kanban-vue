@@ -6,27 +6,27 @@ Inspired by the principles of Agile methodologies, I wanted to build my own appl
 
 ## Features
 
-* Add, delete, rename, and reorder columns.
-* Add, delete, reorder tasks within columns, move them to another column.
-* Set three levels of task priority.
-* Each column has a limit of 5 tickets. When the limit is reached, the column header is marked with red color, providing visual indication.
-* View the total number of tickets in each column.
-* Designed for desktop use.
-* User-friendly intuitive interface with smooth user interactions.
+-   Add, delete, rename, and reorder columns.
+-   Add, delete, reorder tasks within columns, move them to another column.
+-   Set three levels of task priority.
+-   Each column has a limit of 5 tickets. When the limit is reached, the column header is marked with red color, providing visual indication.
+-   View the total number of tickets in each column.
+-   Designed for desktop use.
+-   User-friendly intuitive interface with smooth user interactions.
 
 ## Tech Stack
 
-* Nuxt3
-* TypeScript
-* Tailwind CSS
-* Deployed on Vercel
+-   Nuxt3
+-   TypeScript
+-   Tailwind CSS
+-   Deployed on Vercel
 
 ## Usage
 
-* Clone the repository
-* Install dependencies with ```npm install```
-* Run the application locally with ```npm run dev```
-* Access the application in your browser at http://localhost:3000
+-   Clone the repository
+-   Install dependencies with `npm install`
+-   Run the application locally with `npm run dev`
+-   Access the application in your browser at http://localhost:3000
 
 ## Feedback and Contributions
 

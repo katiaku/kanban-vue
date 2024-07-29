@@ -1,26 +1,37 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "@mdi/font": "^7.4.47",
-    "@nuxtjs/google-fonts": "^3.2.0",
-    "@vueuse/nuxt": "^10.9.0",
-    "nanoid": "^5.0.6",
-    "nuxt": "^3.11.1",
-    "vue": "^3.4.21",
-    "vue-meta": "^2.4.0",
-    "vue-router": "^4.3.0",
-    "vuedraggable": "^4.1.0"
-  },
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.11.4"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "lint": "eslint --ext .js,.vue,.ts,.tsx .",
+        "lint:fix": "eslint --ext .js,.vue,.ts,.tsx . --fix",
+        "format": "prettier --write \"./**/**/*.{js,jsx,ts,tsx,json,css,scss,md,vue}\""
+    },
+    "dependencies": {
+        "@mdi/font": "^7.4.47",
+        "@nuxtjs/google-fonts": "^3.2.0",
+        "@vueuse/nuxt": "^10.9.0",
+        "nanoid": "^5.0.6",
+        "nuxt": "^3.11.1",
+        "vue": "^3.4.21",
+        "vue-meta": "^2.4.0",
+        "vue-router": "^4.3.0",
+        "vuedraggable": "^4.1.0"
+    },
+    "devDependencies": {
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@nuxtjs/tailwindcss": "^6.11.4",
+        "@typescript-eslint/eslint-plugin": "^7.17.0",
+        "@typescript-eslint/parser": "^7.17.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-vue": "^9.27.0",
+        "prettier": "^3.3.3"
+    }
 }
